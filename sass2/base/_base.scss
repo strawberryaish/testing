@@ -1,0 +1,56 @@
+*,
+*::after,
+*::before
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html
+{
+    font-size: 62.5%; // 1rem = 10px        10px/16px = 62.5%
+
+    //700px both of these apply, so the last declaration will apply (tab-port). Start with lower ones to larger screen size
+
+    @include respond(tab-land) // <1200
+    {
+        font-size: 56.25%; //1rem = 8px
+    }
+
+    
+    @include respond(tab-port) //<910
+    {
+        font-size: 50%; //1rem = 9px
+    }
+
+    @include respond(big-desktop)
+    {
+        font-size: 75%; //1 rem = 12, 12/16
+    }
+}
+
+
+
+body
+{
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    
+    line-height: 1.7;
+    color: #777;
+    padding: 3rem;
+    box-sizing: border-box;
+
+    @include respond(tab-land) // <1200
+    {
+        padding: 0;
+    }
+    
+}
+
+//when a user selects/highlights the text
+::selection{
+    background-color: $color-primary;
+    color: $color-white;
+}
